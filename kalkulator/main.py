@@ -24,7 +24,7 @@ while True:
         print("kalkulator".center(30, '='))
         angka1 = int(input("Masukan angka 1\t\t: "))
         operat = str(input("Pilih operator(+,-,/,x)\t: "))
-        if not re.match(r'^[\+\-\*xX\/]', operat):
+        if not re.match(r'^[\+\-\*xX\/]', operat) or len(operat) > 1:
             print('Warning: operator yang anda masukan salah')
             time.sleep(2)
             continue
