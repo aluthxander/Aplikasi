@@ -2,7 +2,8 @@ import pandas as pd
 import os
 import csv
 
-df = pd.read_csv('./ploting_data/2020.csv')
+df = pd.read_csv(
+    r"G:\kuliah\machine Learning\probabilitas_statistik\package_python_data\pandas\kaggle_explorations-master\belajar_python_pandas\dataset\winemag-data-130k-v2.csv")
 
 # path-path folder dan file
 path_current = os.getcwd()
@@ -19,8 +20,8 @@ name_columns = df.columns
 jml_kol = len(name_columns)
 jml_baris = df[name_columns[0]].count()
 Size_data = df.size
-dic_data = {'Rows': jml_kol,
-            'Columns': jml_baris,
+dic_data = {'Rows': jml_baris,
+            'Columns': jml_kol,
             'Size': Size_data}
 
 # menulis data ke format csv
