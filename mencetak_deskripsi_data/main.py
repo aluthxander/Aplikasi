@@ -16,7 +16,12 @@ def cetak_csv(data, path_dir):
 
     # menulis data ke format csv
     path_file = path_dir+r"\Deskripsi.csv"
-    deskripsi.to_csv(path_file)
+    
+    if jml_baris == 0:
+        print("Data File yang anda masukan kosong")
+        return 0
+    else:
+        deskripsi.to_csv(path_file)
     with open(path_file, mode='a') as csv_file:
         Writer = csv.writer(csv_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
         for key, item in dic_data.items():
@@ -39,4 +44,9 @@ def main():
         os.makedirs(path_dir)
     cetak_csv(df, path_dir)
 
-main()
+try:
+    main()
+except FileNotFoundError:
+    print("File tidak ditemukan!")
+except PermissionError:
+    print("Path yang anda masukan salah")
