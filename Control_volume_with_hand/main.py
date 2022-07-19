@@ -10,7 +10,7 @@ import math
 # ===========================
 # mengatur tinggi dan lebar perekaman
 wCam, hCam = 640, 480
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(1)
 cap.set(3, wCam)
 cap.set(4, hCam)
 # ==========================
@@ -34,7 +34,7 @@ while True:
     # mendeteksi adanya tangan pada rekaman
     succes, img = cap.read()
     img = detector.findHands(img)
-    lmList = detector.findPosition(img, draw=False)
+    lmList,_ = detector.findPosition(img, draw=False)
     if len(lmList) != 0:
         # membaca output koordinat pada ujung jari telunjuk dan ibu jari
         # print(lmList[4], lmList[8])
